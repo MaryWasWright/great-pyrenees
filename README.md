@@ -1,39 +1,10 @@
-# The Great Pyrenees Archive
+# Great Pyrenees and Beyond
 
-Public site for Great Pyrenees history, a living catalog of internet sources, and a livestock-guardian training how-to.
+Named door of the painted Southwest Guardian archive.
 
-- Repo: https://github.com/MaryWasWright/great-pyrenees
-- Intended live URL after GitHub Pages is switched on: https://marywaswright.github.io/great-pyrenees/
+- Main door (share this): https://marywaswright.github.io/
+- This door: https://marywaswright.github.io/great-pyrenees/
+- Twin host repo: https://github.com/MaryWasWright/MaryWasWright.github.io
 
-## Local layout
-
-- `index.html` — home
-- `history.html` — breed history
-- `archive.html` — searchable source catalog
-- `training.html` — livestock guardian how-to
-- `about.html` — project notes
-- `data/articles.json` — catalog entries (add sources here)
-- `assets/` — CSS and catalog JavaScript
-
-## Go live (one-time)
-
-1. Open https://github.com/MaryWasWright/great-pyrenees/settings/pages
-2. Under **Build and deployment**, set Source to **GitHub Actions** (if using the workflow) **or** **Deploy from a branch** → `main` / `/ (root)`
-3. Wait a minute, then visit https://marywaswright.github.io/great-pyrenees/
-
-## Add an article later
-
-Append an object to `data/articles.json`:
-
-```json
-{
-  "title": "Article title",
-  "source": "Publisher",
-  "url": "https://example.com",
-  "year": "2026",
-  "topic": "History",
-  "summary": "One or two original sentences. Do not paste copyrighted full text."
-}
-```
-
-Topics already in use: History, Livestock Guardian, Training, Breed Standard, Clubs & Rescue.
+Painted JPEGs, CSS, and JS are served from the main door so this repo can stay text-first.
+Pages deploys from `.github/workflows/pages.yml` on push to `main`.
