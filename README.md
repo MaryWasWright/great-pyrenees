@@ -15,4 +15,4 @@ This repo has no `assets/` folder. Every page loads its CSS, JS, painted images
 - After a visual change, bump the same `?v=` cache-buster on every page in **both** repos.
 - Only `data/articles.json` is local here (fetched relatively by the main door's `site.js`); keep it in sync with the main repo.
 
-Pages deploys from `.github/workflows/pages.yml` on push to `main`.
+GitHub Pages deploys from branch `main`, folder `/` (no workflow file).
