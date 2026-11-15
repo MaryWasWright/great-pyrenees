@@ -1,18 +1,31 @@
-# Great Pyrenees and Beyond
+# PyrPaws
 
-Named door of the painted Southwest Guardian archive.
+**PyrPaws** — Great Pyrenees and Beyond. A painted archive of Great Pyrenees history,
+a catalog of original source summaries, livestock guardian how-to, care notes, and Field Notes.
 
-- Share this door: https://marywaswright.github.io/great-pyrenees/
-- Twin host repo (asset host): https://github.com/MaryWasWright/MaryWasWright.github.io
+- Target domain: https://pyrpaws.com/ (Netlify)
+- Current preview copy: https://marywaswright.github.io/great-pyrenees/ (GitHub Pages)
 
-## Asset dependency
+## Self-contained static site
 
-This repo has no `assets/` folder. Every page loads its CSS, JS, painted images
-(JPEG + WebP), favicon, and the Training page's Age Ladder SVG by absolute URL from the main door:
-`https://marywaswright.github.io/assets/...`
+Plain HTML/CSS/JS. No build step. Everything the site needs is in this repo:
 
-- Renaming or deleting a file in the main repo's `assets/` breaks this door too.
-- After a visual change, bump the same `?v=` cache-buster on every page in **both** repos.
-- Only `data/articles.json` is local here (fetched relatively by the main door's `site.js`); keep it in sync with the main repo.
+- `assets/` holds the shared CSS, JS, favicon, painted JPEG + WebP images, the Age Ladder SVG,
+  and the Field Notes mascot paintings. Pages reference them by relative path
+  (`assets/...`, and `../assets/...` from `field-notes/`), so the site works at a domain root
+  (Netlify) and under `/great-pyrenees/` (GitHub Pages).
+- `data/articles.json` is the catalog (original summaries only, never third-party article text).
+- `netlify.toml` sets `publish = "."` with no build command.
+- `404.html` is the not-found page (uses root-relative paths, which is right on Netlify).
+- `canonical`, `og:url` and `og:image` point at `https://pyrpaws.com/...`.
+- Keep `.nojekyll`.
 
-GitHub Pages deploys from branch `main`, folder `/` (no workflow file).
+## Deploying on Netlify
+
+New site from Git, this repo, branch `main`, build command empty, publish directory `.`.
+Then add the custom domain `pyrpaws.com` in Netlify. DNS is changed separately, after approval.
+
+## Cache-buster
+
+After a visual change, bump the `?v=` value (currently `pyrpaws1`) on every page, in
+`assets/site.js` (the `articles.json` fetch), and in `404.html`.
